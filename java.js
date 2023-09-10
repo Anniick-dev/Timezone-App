@@ -36,7 +36,6 @@ if (event.target.value == 'auckland') {
   alert(`It is currently ${aucklandTime} in Auckland, New Zealand!`);
 }
 
-
 // timezone amsterdam //
 if (event.target.value == 'amsterdam') {
   
@@ -48,7 +47,7 @@ let amsterdamTime = moment()
 
       amsterdamElement.innerHTML = amsterdamTime;
 
-      alert ("It is currently [${timeZone} in Amsterdam, The Netherlands!");
+      alert (`It is currently ${amsterdamTime} in Amsterdam, The Netherlands!`);
 } 
 
 // timezone sydney //
@@ -61,8 +60,7 @@ if (event.target.value == 'sydney') {
 
       sydneyElement.innerHTML = sydneyTime;
 
-      
-      alert ("It is currently [${timeZone} in Sydney, Australis!");
+      alert (`It is currently ${sydneyTime} in Sydney, Australis!`);
 } 
 
 // timezone new york //
@@ -76,56 +74,25 @@ let newYorkTime = moment()
 
         newYorkElement.innerHTML = newYorkTime;
 
-        alert ("It is currently ${timeZone} in New York, USA!");
+        alert (`It is currently ${newYorkTime} in New York, USA!`);
       }
-      
+
 // timezone current location //
-let localTimezone = moment.tz.guess();
-      let localElement = document.querySelector("#local");
-      localElement.innerHTML = `Your current time zone is ${localTimezone} and the current time is ${moment().format(
-        "h:m A"
-      )}`;
+if (event.target.value == 'local') {
 
+      let localTime = moment.tz
+      .guess()
+      .format("dddd, MMMM D, YYYY h:m A");
+      
+        let localElement = document.querySelector("#local");
 
-  
+        localElement.innerHTML = localTime;
+        
+        alert (`It is currently ${localTime} in your timezone!`);
 
-  
-
-  
+}
 }
 
-function showSelectedCountry(event) {
-  alert(event.target.value);
-}
-function showSelectedCountry(event) {
-  if (event.target.value.length > 0) {
-    if (event.target.value === "france") {
-      let franceTime = moment()
-        .tz("Europe/Paris")
-        .format("dddd, MMMM D, YYYY hh:mm A");
-      alert(franceTime)
-    }
-    if (event.target.value === "tokyo") {
-      let tokyoTime = moment()
-        .tz("Asia/Tokyo")
-        .format("dddd, MMMM D, YYYY hh:mm A");
-      alert(tokyoTime)
-    }
-    if (event.target.value === "nairobi") {
-      let nairobiTime = moment()
-        .tz("Africa/Nairobi")
-        .format("dddd, MMMM D, YYYY hh:mm A");
-      alert(nairobiTime)
-    }
-  }
-}
-
-
-
-
-
-
-  
   // function for current position //
 function getCurrentLocation(event) {
   event.preventDefault();
@@ -193,4 +160,3 @@ function updateTemperatureUnits() {
 
 var unitToggle = document.querySelector(".switch-control-input");
 unitToggle.addEventListener("change", updateTimeUnits);
-
