@@ -150,6 +150,8 @@ let dateElement = document.querySelector("#date");
 let currentTime = new Date();
 dateElement.innerHTML = formatDate(currentTime);
 
+setInterval(currentTime, 60000);
+
 // push through search //
 let searchForm = document.querySelector("form");
 searchForm.addEventListener("submit", handleSubmit);
@@ -225,15 +227,15 @@ function showSelectedCity (event) {
   }
 
   if (event.target.value == 'willemstad') {
-    alert ("Bon Dia!");
+    alert ("It is currently [time] in Willemstad, Curacao!");
   } 
 
   if (event.target.value == 'amsterdam') {
-    alert ("Hallo!");
+    alert ("It is currently [time] in Amsterdam, The Netherlands!");
   }
 
   if (event.target.value == 'los-angeles') {
-    alert ("Howdy!");
+    alert ("It is currently [time] in Los Angeles, USA!");
   } 
 }
 
