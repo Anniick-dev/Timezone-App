@@ -25,7 +25,7 @@ function showSelectedCity(event) {
   let selectedCityName = event.target.options[event.target.selectedIndex].text;
   
   if (event.target.value.length > 0) {
-    selectedCityElement.innerHTML = `Selected: ${selectedCityName}`;
+    selectedCityElement.innerHTML = `${selectedCityName}`;
   } 
 
   // timezone amsterdam //
@@ -36,7 +36,7 @@ if (event.target.value == 'amsterdam') {
           .format("dddd, MMMM D, YYYY HH:mm A");
   
         let amsterdamElement = document.querySelector("#selectedCityText");
-        let selectedCityText = `It is currently ${amsterdamTime} in Amsterdam, The Netherlands!`;
+        let selectedCityText = `${amsterdamTime}`;
         amsterdamElement.innerHTML = selectedCityText;
   
         alert (`It is currently ${amsterdamTime} in Amsterdam, The Netherlands!`);
