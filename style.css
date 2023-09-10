@@ -141,24 +141,11 @@ input:checked + .slider:before {
 }
 
 .dropdown-button {
-  display: block;
-  margin: 0 auto;
-  padding: 1px;
-  border-radius: 10px;
+  width: 100%;
 }
 
-.dropdown-button input[type=text] {
-  padding: 10px;
-  font-size: 12px;
-  border: 1px solid #e3ebfd;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.7);
-  text-align: left;
-  width: 500px;
-}
-
-  /* Style the submit button of search */
-  .dropdown-button button {
+/* Style the search button */
+.search-button {
     padding: 1px;
     background: #e3ebfd;
     color: #e3ebfd;
@@ -167,17 +154,6 @@ input:checked + .slider:before {
     margin-left: 1px;
     border-radius: 10px;
     margin-top: 15px;
-  }
-
-/* Style the search button */
-.search-button {
-  padding: 1px;
-  background: #0d47cc;
-  color: #e3ebfd;
-  font-size: 2px;
-  border: 1px solid #e3ebfd00;
-  margin-left: 5px;
-  border-radius: 10px;
 }
 
 /* Style the footer */

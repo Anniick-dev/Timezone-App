@@ -242,3 +242,14 @@ function showSelectedCity (event) {
 let cityDropdown = document.querySelector("#city-dropdown");
 cityDropdown.addEventListener('change', showSelectedCity);
 
+// Moments //
+
+let today = moment().format("dddd Do MMMM");
+      let todayElement = document.querySelector("#today");
+      todayElement.innerHTML = today;
+
+      let tomorrowElement = document.querySelector("#tomorrow");
+      
+let tomorrow = moment().add(1, "day").format("dddd Do, MMMM");
+      tomorrowElement.innerHTML = `Tomorrow will be ${tomorrow}`;
+
