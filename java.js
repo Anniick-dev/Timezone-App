@@ -1,104 +1,17 @@
-// Today's date on main screen//
+// Today's date on main screen & Update the date and time every second//
+function updateDate() {
+  let dateElement = document.querySelector("#date");
+  let currentTime = new Date();
+  dateElement.innerHTML = formatDate(currentTime);
+}
 
 function formatDate(date) {
-  let hours = date.getHours();
-  if (hours < 10) {
-    hours = `0${hours}`;
-  }
-  let minutes = date.getMinutes();
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
-  }
-  let milliseconds = date.getMilliseconds();
-  if (milliseconds < 10) {
-    milliseconds = `0${milliseconds}`;
-  }
-
-  let dayIndex = date.getDay();
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday"
-  ];
-  let day = days[dayIndex];
-
-  let dateNumber = date.getDate();
-
-  let monthIndex = date.getMonth();
-  let months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ]
-  let month = months[monthIndex];
-
-  return `${day}, ${month} ${dateNumber} | ${hours}:${minutes}:${milliseconds}`;
+  return moment(date).format("dddd, MMMM Do, YYYY HH:mm:ss")
 }
 
-// function to search for specific day & date //
-function getForecastDay(latitude, longitude) {
-  let apiKey = "f97e6oa7271ce6b46a866b531489t0f6";
-  let apiURL = `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric&cnt=5`; // cnt=5 for 5-day forecast
-  axios.get(apiURL).then(displayForecast);
-}
+updateDate();
 
-function displayForecast(response) {
-  let forecastElement = document.querySelector("#forecast");
-
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-
-  let forecastHTML = `<div class="row g-0 d-flex justify-content-center">`;
-
-  response.data.daily.forEach(function (dayData) {
-    let timestamp = dayData.time * 1000;
-    let date = new Date(timestamp);
-    let dayName = days[date.getDay()];
-
- // Get month and day from the date //
- let month = date.toLocaleString("default", { month: "short" });
- let day = date.getDate();
-
-    let minTemp = Math.round(dayData.temperature.minimum);
-    let maxTemp = Math.round(dayData.temperature.maximum);
-
-    forecastHTML +=
-      `
-      <div class="col">
-        <button class="bubbles">
-          <img src="${dayData.condition.icon_url}" width=40px/>
-          <span class="forecastTemperature">
-            <span class="minTemp" id="minTemp">${minTemp}</span> |
-            <span class="maxTemp" id="maxTemp">${maxTemp}</span>
-          </span>
-        </button>
-        <span class="dayWeek">${dayName} | <span class="dateWeek"> ${month} ${day}</span></span>
-      </div>
-      `;
-  });
-
-  forecastHTML += `</div>`;
-  forecastElement.innerHTML = forecastHTML;
-}
-
-function getForecast(coordinates) {
-  console.log(coordinates);
-  let apiKey = "f97e6oa7271ce6b46a866b531489t0f6";
-  let apiURL = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
-  axios.get(apiURL).then(displayForecast);
-}
+setInterval(updateDate, 1000);
 
 // function to search for specific city //
 function searchCity(city) { 
@@ -158,8 +71,7 @@ function updateDateTime() {
 
 updateDateTime();
 
-// Set up an interval to update the date and time every second
-setInterval(updateDateTime, 1000);
+
 
 // push through search //
 let searchForm = document.querySelector("form");
