@@ -13,6 +13,62 @@ updateDate();
 
 setInterval(updateDate, 1000);
 
+// Show the selected dropdown value //
+let cityDropdown = document.querySelector("#city-dropdown");
+cityDropdown.addEventListener('change', showSelectedCity);
+
+// timezone amsterdam //
+let amsterdamTime = moment()
+        .tz("Europe/Amsterdam")
+        .format("dddd, MMMM D, YYYY h:m A");
+
+      let amsterdamElement = document.querySelector("#amsterdam");
+
+      amsterdamElement.innerHTML = amsterdamTime;
+
+// timezone sydney //
+let sydneyTime = moment()
+        .tz("Australia/Sydney")
+        .format("dddd, MMMM D, YYYY h:m A");
+
+      let sydneyElement = document.querySelector("#sydney");
+
+      sydneyElement.innerHTML = sydneyTime;
+
+// timezone new york //
+let newYorkTime = moment()
+        .tz("America/New_York")
+        .format("dddd, MMMM D, YYYY h:m A");
+
+        let newYorkElement = document.querySelector("#new-york");
+
+        newYorkElement.innerHTML = newYorkTime;
+
+// timezone auckland //
+let aucklandTime = moment()
+        .tz("Pacific/Auckland")
+        .format("dddd, MMMM D, YYYY h:m A");
+
+        let aucklandElement = document.querySelector("#auckland");
+
+        aucklandElement.innerHTML = aucklandTime;
+
+// timezone current location //
+let localTimezone = moment.tz.guess();
+      let localElement = document.querySelector("#local");
+      localElement.innerHTML = `Your current time zone is ${localTimezone} and the current time is ${moment().format(
+        "h:m A"
+      )}`;
+
+
+
+      
+  // function for current position //
+function getCurrentLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(searchLocation);
+  }
+
 //Show selected country in dropdown upon selection //
 function showSelectedCity (event) {
   if (event.target.value.length > 0) {
@@ -32,31 +88,7 @@ function showSelectedCity (event) {
   } 
 }
 
-let cityDropdown = document.querySelector("#city-dropdown");
-cityDropdown.addEventListener('change', showSelectedCity);
 
-// timezone amsterdam //
-let amsterdamTime = moment()
-        .tz("Europe/Amsterdam")
-        .format("dddd, MMMM D, YYYY h:m A");
-
-      let amsterdamElement = document.querySelector("#amsterdam");
-
-      amsterdamElement.innerHTML = amsterdamTime;
-
-// timezone current location //
-let localTimezone = moment.tz.guess();
-      let localElement = document.querySelector("#local");
-      localElement.innerHTML = `Your current time zone is ${localTimezone} and the current time is ${moment().format(
-        "h:m A"
-      )}`;
-
-
-  // function for current position //
-function getCurrentLocation(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(searchLocation);
-  }
 
 
 
