@@ -137,11 +137,10 @@ input:checked + .slider:before {
   text-align: center;
   margin-left: 10px;
   margin-top: 10px;
-  width: 100%;
 }
 
 .dropdown-button {
-  width: 100%;
+  width: 90%;
 }
 
 /* Style the search button */
