@@ -36,18 +36,18 @@
                                     <div class="dropdown-button">
                                         <label for="cities"></label>
                                         <select id="city-dropdown" class="city-dropdown">
-                                            <option value="">Select city</option>
+                                            <option value="" selected>Select city</option>
+                                            <option value="amsterdam" id="amsterdam">Amsterdam</option>
+                                            <option value="auckland" id="auckland">Auckland</option>
                                             <option value="local" id="local">Current Location</option>
                                             <option value="new-york" id="new-york">New York</option>
-                                            <option value="auckland" id="auckland">Auckland</option>
-                                            <option value="amsterdam" id="amsterdam">Amsterdam</option>
                                             <option value="sydney" id="sydney">Sydney</option>
                                         </select>
                                         <button type="submit" class="search-button"></button>
                                     </div>
                                     <div class="row">
-                                        <div class="aucklandTimeZone"></div>
-
+                                        <div class="selected-city" id="selected-city"></div>
+                                        <div class="selectedCityText" id="selectedCityText"></div>
                                     </div>
                                     </div>
                                 </div>

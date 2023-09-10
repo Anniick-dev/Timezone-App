@@ -18,86 +18,87 @@ let cityDropdown = document.querySelector("#city-dropdown");
 cityDropdown.addEventListener('change', showSelectedCity);
 
 //Show selected country in dropdown upon selection //
-function showSelectedCity (event) {
+function showSelectedCity(event) {
+  event.preventDefault();
+
+  let selectedCityElement = document.querySelector("#selected-city");
+  let selectedCityName = event.target.options[event.target.selectedIndex].text;
+  
   if (event.target.value.length > 0) {
-  alert(event.target.value);
-  }
+    selectedCityElement.innerHTML = `Selected: ${selectedCityName}`;
+  } 
+
+  // timezone amsterdam //
+if (event.target.value == 'amsterdam') {
+
+  let amsterdamTime = moment()
+          .tz("Europe/Amsterdam")
+          .format("dddd, MMMM D, YYYY HH:mm A");
+  
+        let amsterdamElement = document.querySelector("#selectedCityText");
+        let selectedCityText = `It is currently ${amsterdamTime} in Amsterdam, The Netherlands!`;
+        amsterdamElement.innerHTML = selectedCityText;
+  
+        alert (`It is currently ${amsterdamTime} in Amsterdam, The Netherlands!`);
+  } 
 
 // timezone auckland //
 if (event.target.value == 'auckland') {
+
   let aucklandTime = moment()
       .tz("Pacific/Auckland")
-      .format("dddd, MMMM D, YYYY h:m A");
+      .format("dddd, MMMM D, YYYY HH:mm A");
 
-  let aucklandElement = document.querySelector("#auckland");
+    let aucklandElement = document.querySelector("#selectedCityText");
+    let selectedCityText = `It is currently ${aucklandTime} in Auckland, New Zealand!`;
+    aucklandElement.innerHTML = selectedCityText;
 
-  aucklandElement.innerHTML = aucklandTime;
-
-  alert(`It is currently ${aucklandTime} in Auckland, New Zealand!`);
+    alert(`It is currently ${aucklandTime} in Auckland, New Zealand!`);
 }
 
-// timezone amsterdam //
-if (event.target.value == 'amsterdam') {
-  
-let amsterdamTime = moment()
-        .tz("Europe/Amsterdam")
-        .format("dddd, MMMM D, YYYY h:m A");
+// timezone current location //
+if (event.target.value == 'local') {
+  let userTimezone = moment.tz.guess();
+  let localTime = moment()
+      .tz(userTimezone)
+      .format("dddd, MMMM D, YYYY HH:mm A");
 
-      let amsterdamElement = document.querySelector("#amsterdam");
+  let localElement = document.querySelector("#selectedCityText");
+  let selectedCityText = `It is currently ${localTime} in ${userTimezone}!`;
+  localElement.innerHTML = selectedCityText;
 
-      amsterdamElement.innerHTML = amsterdamTime;
-
-      alert (`It is currently ${amsterdamTime} in Amsterdam, The Netherlands!`);
-} 
-
-// timezone sydney //
-if (event.target.value == 'sydney') {
-  let sydneyTime = moment()
-        .tz("Australia/Sydney")
-        .format("dddd, MMMM D, YYYY h:m A");
-
-      let sydneyElement = document.querySelector("#sydney");
-
-      sydneyElement.innerHTML = sydneyTime;
-
-      alert (`It is currently ${sydneyTime} in Sydney, Australis!`);
-} 
+  alert(`It is currently ${localTime} in ${userTimezone}!`);
+}
 
 // timezone new york //
 if (event.target.value == 'new-york') {
   
 let newYorkTime = moment()
         .tz("America/New_York")
-        .format("dddd, MMMM D, YYYY h:m A");
+        .format("dddd, MMMM D, YYYY HH:mm A");
 
-        let newYorkElement = document.querySelector("#new-york");
-
-        newYorkElement.innerHTML = newYorkTime;
+        let newYorkElement = document.querySelector("#selectedCityText");
+        let selectedCityText = `It is currently ${newYorkTime} in New York, USA!`;
+        newYorkElement.innerHTML = selectedCityText;
 
         alert (`It is currently ${newYorkTime} in New York, USA!`);
       }
 
-// timezone current location //
-if (event.target.value == 'local') {
 
-      let localTime = moment.tz
-      .guess()
-      .format("dddd, MMMM D, YYYY h:m A");
-      
-        let localElement = document.querySelector("#local");
+// timezone sydney //
+if (event.target.value == 'sydney') {
+  let sydneyTime = moment()
+        .tz("Australia/Sydney")
+        .format("dddd, MMMM D, YYYY HH:mm A");
 
-        localElement.innerHTML = localTime;
-        
-        alert (`It is currently ${localTime} in your timezone!`);
+      let sydneyElement = document.querySelector("#selectedCityText");
+      let selectedCityText = `It is currently ${sydneyTime} in Sydney, Australia!`;
+      sydneyElement.innerHTML = selectedCityText;
 
-}
-}
+      alert (`It is currently ${sydneyTime} in Sydney, Australia!`);
+} 
+    }
 
-  // function for current position //
-function getCurrentLocation(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(searchLocation);
-  }
 
 
 
