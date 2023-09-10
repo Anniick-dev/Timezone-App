@@ -8,128 +8,6 @@ body {
   background-color: #f5f5f5;
 }
 
-/* Center the card horizontally and vertically */
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
-
-/* Style the box */
-.card {
-  width: 60rem;
-  height: 30rem;
-  border-radius: 10px;
-  background-color: #e3ebfd;
-  border-color: #e3ebfd;
-  padding: auto;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-/* Style the timezone box */
-.timeZoneCard {
-  width: 30rem;
-  height: 15rem;
-  border-radius: 10px;
-  background-color: #f5f5f5;
-  border-color: #f5f5f5;
-  padding: auto;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-}
-
-/* Style the date */
-.date {
-  padding: 10px;
-  color: #101319;
-  font-size: 12px;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
-
-.title {
-  text-align: center;
-  margin-top: 15px;
-  padding: 1px;
-  font-size: 24px;
-}
-
-/* Style the search field */
-form.dropdown-button {
-  display: block;
-  margin: 0 auto;
-  padding: 1px;
-  border-radius: 10px;
-}
-
-form.dropdown-button:hover {
-  border-color: #8daded;
-  border-width: 1px;
-  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1);
-}
-
-form.dropdown-button input[type=text] {
-  padding: 10px;
-  font-size: 12px;
-  border: 1px solid #e3ebfd;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.7);
-  text-align: left;
-  width: 500px;
-}
-
-  /* Style the submit button of search */
-  form.dropdown-button button {
-    padding: 1px;
-    background: #e3ebfd;
-    color: #e3ebfd;
-    font-size: 12px;
-    border: 1px solid #e3ebfd00;
-    margin-left: 1px;
-    border-radius: 10px;
-    margin-top: 15px;
-  }
-
-  .input-group {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-    border-radius: 10px;
-  }
-
-  .input-group input, .input-group button {
-    margin: 1px;
-    border-radius: 10px;
-  }
-  
-  /* Clear floats */
-  form.dropdown-button::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
-
-
-/* Style the footer */
-.github {
-  text-align: center;
-  font-size: 10px;
-  margin-top: 10px;
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
 /* Slider */
 /* The switch - the box around the slider */
 .switch {
@@ -194,6 +72,61 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
+/* Center the card horizontally and vertically */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+/* Style the box */
+.card {
+  width: 60rem;
+  height: 30rem;
+  border-radius: 10px;
+  background-color: #e3ebfd;
+  border-color: #e3ebfd;
+  padding: auto;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Style the timezone box */
+.timeZoneCard {
+  width: 30rem;
+  height: 15rem;
+  border-radius: 10px;
+  background-color: #f5f5f5;
+  border-color: #f5f5f5;
+  padding: auto;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+/* Style the date */
+.date {
+  padding: 10px;
+  color: #101319;
+  font-size: 12px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+/* Style the main title */
+.title {
+  text-align: center;
+  margin-top: 15px;
+  padding: 1px;
+  font-size: 24px;
+}
+
 /* Style the dropdown select element */
 .city-dropdown {
   padding: 10px;
@@ -202,20 +135,59 @@ input:checked + .slider:before {
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.7);
   text-align: left;
-  width: 400px;
+  margin-left: 10px;
+  margin-top: 10px;
+  width: 80%;
 }
+
+.dropdown-button {
+  display: block;
+  margin: 0 auto;
+  padding: 1px;
+  border-radius: 10px;
+}
+
+.dropdown-button input[type=text] {
+  padding: 10px;
+  font-size: 12px;
+  border: 1px solid #e3ebfd;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.7);
+  text-align: left;
+  width: 500px;
+}
+
+  /* Style the submit button of search */
+  .dropdown-button button {
+    padding: 1px;
+    background: #e3ebfd;
+    color: #e3ebfd;
+    font-size: 12px;
+    border: 1px solid #e3ebfd00;
+    margin-left: 1px;
+    border-radius: 10px;
+    margin-top: 15px;
+  }
 
 /* Style the search button */
 .search-button {
   padding: 1px;
-  background: #e3ebfd;
+  background: #0d47cc;
   color: #e3ebfd;
   font-size: 2px;
   border: 1px solid #e3ebfd00;
-  margin-left: 1px;
+  margin-left: 5px;
   border-radius: 10px;
-  margin-top: 15px;
 }
 
-
+/* Style the footer */
+.github {
+  text-align: center;
+  font-size: 10px;
+  margin-top: 10px;
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
