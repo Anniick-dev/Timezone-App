@@ -9,6 +9,10 @@ function formatDate(date) {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
+  let milliseconds = date.getMilliseconds();
+  if (milliseconds < 10) {
+    milliseconds = `0${milliseconds}`;
+  }
 
   let dayIndex = date.getDay();
   let days = [
@@ -41,7 +45,7 @@ function formatDate(date) {
   ]
   let month = months[monthIndex];
 
-  return `${day}, ${month} ${dateNumber} | ${hours}:${minutes}`;
+  return `${day}, ${month} ${dateNumber} | ${hours}:${minutes}:${milliseconds}`;
 }
 
 // function to search for specific day & date //
@@ -145,12 +149,17 @@ function getCurrentLocation(event) {
     getForecast(response.data.coordinates);
 }
 
-// calculate date //
-let dateElement = document.querySelector("#date");
-let currentTime = new Date();
-dateElement.innerHTML = formatDate(currentTime);
+// Udate the date and time //
+function updateDateTime() {
+  let dateElement = document.querySelector("#date");
+  let currentTime = new Date();
+  dateElement.innerHTML = formatDate(currentTime);
+}
 
-setInterval(currentTime, 60000);
+updateDateTime();
+
+// Set up an interval to update the date and time every second
+setInterval(updateDateTime, 1000);
 
 // push through search //
 let searchForm = document.querySelector("form");
