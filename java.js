@@ -216,3 +216,27 @@ function updateTemperatureUnits() {
 
 var unitToggle = document.querySelector(".switch-control-input");
 unitToggle.addEventListener("change", updateTimeUnits);
+
+//Show selected country in dropdown upon selection //
+
+function showSelectedCity (event) {
+  if (event.target.value.length > 0) {
+  alert(event.target.value);
+  }
+
+  if (event.target.value == 'willemstad') {
+    alert ("Bon Dia!");
+  } 
+
+  if (event.target.value == 'amsterdam') {
+    alert ("Hallo!");
+  }
+
+  if (event.target.value == 'los-angeles') {
+    alert ("Howdy!");
+  } 
+}
+
+let citiesSelect = document.querySelector("#cities");
+citiesSelect.addEventListener('change',showSelectedCity);
+
