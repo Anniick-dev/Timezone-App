@@ -59,10 +59,7 @@ let localTimezone = moment.tz.guess();
       localElement.innerHTML = `Your current time zone is ${localTimezone} and the current time is ${moment().format(
         "h:m A"
       )}`;
-
-
-
-      
+  
   // function for current position //
 function getCurrentLocation(event) {
   event.preventDefault();
@@ -75,16 +72,20 @@ function showSelectedCity (event) {
   alert(event.target.value);
   }
 
-  if (event.target.value == 'willemstad') {
-    alert ("It is currently ${timeZone} in Willemstad, Curacao!");
+  if (event.target.value == 'auckland') {
+    alert ("It is currently ${timeZone} in Auckland, New-Zealand!");
   } 
 
-  if (event.target.value == 'amsterdam') {
-    alert ("It is currently ${timeZone} in Amsterdam, The Netherlands!");
+  if (event.target.value == 'new-york') {
+    alert ("It is currently ${timeZone} in New York, USA!");
   }
 
-  if (event.target.value == 'los-angeles') {
-    alert ("It is currently [${timeZone} in Los Angeles, USA!");
+  if (event.target.value == 'amsterdam') {
+    alert ("It is currently [${timeZone} in Amsterdam, The Netherlands!");
+  } 
+
+  if (event.target.value == 'sydney') {
+    alert ("It is currently [${timeZone} in Sydney, Australis!");
   } 
 }
 
