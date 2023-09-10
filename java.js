@@ -237,6 +237,6 @@ function showSelectedCity (event) {
   } 
 }
 
-let citiesSelect = document.querySelector("#cities");
-citiesSelect.addEventListener('change',showSelectedCity);
+let cityDropdown = document.querySelector("#city-dropdown");
+cityDropdown.addEventListener('change', showSelectedCity);
 
