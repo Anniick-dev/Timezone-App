@@ -15,7 +15,6 @@ updateCityTime();
 setInterval(updateDate, 1000);
 setInterval(updateCityTime, 1000);
 
-
 // Function to update the time //
 function updateCityTime() {
   // Amsterdam
@@ -127,7 +126,7 @@ function updateCity(event) {
         let selectedCityText = `It is currently ${currentDate} ${currentTime} in ${cityName}`;
         showDateElement.innerHTML = selectedCityText;
 
-      alert(`It is ${currentTime} in ${cityName}`);
+      alert(`It is currently ${currentDate} ${currentTime} in ${cityName}`);
     }
   }
 
