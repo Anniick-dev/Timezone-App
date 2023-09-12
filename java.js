@@ -19,7 +19,7 @@ setInterval(updateCityTime, 1000);
 // Function to update the time //
 function updateCityTime() {
   // Amsterdam
-  let amsterdamElement = document.querySelector("#amsterdam");
+  let amsterdamElement = document.querySelector("#amsterdamBox");
   if (amsterdamElement) {
     let amsterdamDateElement = amsterdamElement.querySelector(".cityDate");
     let amsterdamTimeElement = amsterdamElement.querySelector(".cityTime");
@@ -33,7 +33,7 @@ function updateCityTime() {
   }
 
   // Auckland
-  let aucklandElement = document.querySelector("#auckland");
+  let aucklandElement = document.querySelector("#aucklandBox");
   if (aucklandElement) {
     let aucklandDateElement = aucklandElement.querySelector(".cityDate");
     let aucklandTimeElement = aucklandElement.querySelector(".cityTime");
@@ -47,7 +47,7 @@ function updateCityTime() {
   }
 
   // New York
-  let newYorkElement = document.querySelector("#newYork");
+  let newYorkElement = document.querySelector("#newYorkBox");
   if (newYorkElement) {
     let newYorkDateElement = newYorkElement.querySelector(".cityDate");
     let newYorkTimeElement = newYorkElement.querySelector(".cityTime");
@@ -61,7 +61,7 @@ function updateCityTime() {
   }
 
   // Sydney
-  let sydneyElement = document.querySelector("#sydney");
+  let sydneyElement = document.querySelector("#sydneyBox");
   if (sydneyElement) {
     let sydneyDateElement = sydneyElement.querySelector(".cityDate");
     let sydneyTimeElement = sydneyElement.querySelector(".cityTime");
@@ -74,26 +74,28 @@ function updateCityTime() {
   }
 }
 
+//function to update teh city timezeon//
 function updateCity(event) {
   let cityTimeZone = event.target.value;
-  if (cityTimeZone === "local") {
-    cityTimeZone = moment.tz.guess();
-  }
   let cityName = cityTimeZone.replace("_", " ").split("/")[1];
   let cityTimes = moment().tz(cityTimeZone);
-  
-  // Find the specific city element by its ID
-  let cityElement = document.querySelector(`#${cityName.toLowerCase()}`);
-  if (cityElement) {
-    let cityDateElement = cityElement.querySelector(".cityDate");
-    let cityTimeElement = cityElement.querySelector(".cityTime");
-    
-    // Update the content of the specific city element
-    cityDateElement.textContent = cityTimes.format("MMMM Do YYYY");
-    cityTimeElement.textContent = `${cityTimes.format("h:mm:ss")} ${cityTimes.format("A")}`;
-  }
+  let citiesElement = document.querySelector("#cities");
+  citiesElement.innerHTML = `
+  <div class="timezoneBox">
+    <div class="row">
+    <div class="col">
+    <div class="city">${cityName}</div>
+    <div class="cityDate">${cityTimes.format("MMMM	Do YYYY")}</div>
+    </div>
+    <div class="col">
+    <div class="cityTime">${cityTimes.format("h:mm:ss")} <small>${cityTimes.format(
+    "A"
+  )}</small></div>
+  </div>
+  </div>
+  </div>
+  `;
 }
-
 
 //Show selected city in dropdown upon selection //
   function showDate(event) {
