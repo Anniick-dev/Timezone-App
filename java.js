@@ -10,8 +10,64 @@ function formatDate(date) {
 }
 
 updateDate();
+updateCityTime();
 
 setInterval(updateDate, 1000);
+
+// Function to update the time //
+function updateCityTime() {
+  // Amsterdam
+  let amsterdamElement = document.querySelector("#amsterdam");
+  if (amsterdamElement) {
+    let amsterdamDateElement = amsterdamElement.querySelector(".cityDate");
+    let amsterdamTimeElement = amsterdamElement.querySelector(".cityTime");
+    let amsterdamTime = moment().tz("Europe/Amsterdam");
+
+    amsterdamDateElement.innerHTML = amsterdamTime.format("MMMM	Do YYYY");
+    amsterdamTimeElement.innerHTML = amsterdamTime.format(
+      "h:mm:ss [<small>]A[</small>]"
+    );
+  }
+
+  // Auckland
+  let aucklandElement = document.querySelector("#auckland");
+  if (aucklandElement) {
+    let aucklandDateElement = aucklandElement.querySelector(".cityDate");
+    let aucklandTimeElement = aucklandElement.querySelector(".cityTime");
+    let aucklandTime = moment().tz("Pacific/Auckland");
+
+    aucklandDateElement.innerHTML = aucklandTime.format("MMMM	Do YYYY");
+    aucklandTimeElement.innerHTML = aucklandTime.format(
+      "h:mm:ss [<small>] A[</small>]"
+    );
+  }
+
+  // New York
+  let newYorkElement = document.querySelector("#newYork");
+  if (newYorkElement) {
+    let newYorkDateElement = newYorkElement.querySelector(".cityDate");
+    let newYorkTimeElement = newYorkElement.querySelector(".cityTime");
+    let newYorkTime = moment().tz("America/New_York");
+
+    newYorkDateElement.innerHTML = newYorkTime.format("MMMM	Do YYYY");
+    newYorkTimeElement.innerHTML = newYorkTime.format(
+      "h:mm:ss [<small>] A[</small>]"
+    );
+  }
+
+  // Sydney
+  let sydneyElement = document.querySelector("#sydney");
+  if (sydneyElement) {
+    let sydneyDateElement = sydneyElement.querySelector(".cityDate");
+    let sydneyTimeElement = sydneyElement.querySelector(".cityTime");
+    let sydneyTime = moment().tz("Australia/Sydney");
+
+    sydneyDateElement.innerHTML = sydneyTime.format("MMMM	Do YYYY");
+    sydneyTimeElement.innerHTML = sydneyTime.format(
+      "h:mm:ss [<small>] A[</small>]"
+    );
+  }
+}
 
 //Show selected city in dropdown upon selection //
   function showDate(event) {
