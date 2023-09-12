@@ -71,11 +71,27 @@ function updateCityTime() {
       "HH:mm:ss A"
     );
   }
+
+  // local
+  let localElement = document.querySelector("#localBox");
+  if (localElement) {
+    let localDateElement = localElement.querySelector(".cityDate");
+    let localTimeElement = localElement.querySelector(".cityTime");
+    let localTime = moment.tz.guess();
+
+    localDateElement.innerHTML = localTime.format("MMMM	Do YYYY");
+    localTimeElement.innerHTML = localTime.format(
+      "HH:mm:ss A"
+    );
+  }
 }
 
-//function to update teh city timezeon//
+//function to update the city timezeon//
 function updateCity(event) {
   let cityTimeZone = event.target.value;
+  if (cityTimeZone==="local") {
+    cityTimeZone = moment.tz.guess();
+  }
   let cityName = cityTimeZone.replace("_", " ").split("/")[1];
   let cityTimes = moment().tz(cityTimeZone);
   let citiesElement = document.querySelector("#cities");
@@ -97,38 +113,54 @@ function updateCity(event) {
 }
 
 //Show selected city in dropdown upon selection //
-  function showDate(event) {
-    if (event.target.value.length > 0) {
+function showDate(event) {
+  if (event.target.value.length > 0) {
+
+    function updateDateTime() {
       let currentTime = moment()
         .tz(event.target.value)
         .format("HH:mm:ss A");
 
-        let currentDate = moment()
+      let currentDate = moment()
         .tz(event.target.value)
         .format("dddd, MMMM D, YYYY");
 
-        let cityTimeZone = event.target.value;
-        let cityName = cityTimeZone.replace("_", " ").split("/")[1];
+      let cityTimeZone = event.target.value;
+      let cityName = cityTimeZone.replace("_", " ").split("/")[1];
 
-        let showCityNameElement = document.querySelector("#cityFiller");
-        let selectedCityNameText = `${cityName}`;
-        showCityNameElement.innerHTML = selectedCityNameText;
+      let showCityNameElement = document.querySelector("#cityFiller");
+      let selectedCityNameText = `${cityName}`;
+      showCityNameElement.innerHTML = selectedCityNameText;
 
-        let showCityDateElement = document.querySelector("#cityDateFiller");
-        let selectedCityDateText = `${currentDate}`;
-        showCityDateElement.innerHTML = selectedCityDateText;
+      let showCityDateElement = document.querySelector("#cityDateFiller");
+      let selectedCityDateText = `${currentDate}`;
+      showCityDateElement.innerHTML = selectedCityDateText;
 
-        let showCityTimeElement = document.querySelector("#cityTimeFiller");
-        let selectedCityTimeText = `${currentTime}`;
-        showCityTimeElement.innerHTML = selectedCityTimeText;
+      let showCityTimeElement = document.querySelector("#cityTimeFiller");
+      let selectedCityTimeText = `${currentTime}`;
+      showCityTimeElement.innerHTML = selectedCityTimeText;
 
-        let showDateElement = document.querySelector("#selectedCityText");
-        let selectedCityText = `It is currently ${currentDate} ${currentTime} in ${cityName}`;
-        showDateElement.innerHTML = selectedCityText;
-
-      alert(`It is currently ${currentDate} ${currentTime} in ${cityName}`);
+      let showDateElement = document.querySelector("#selectedCityText");
+      let selectedCityText = `It is currently ${currentDate} ${currentTime} in ${cityName}`;
+      showDateElement.innerHTML = selectedCityText;
     }
+
+    // Initial update
+    updateDateTime();
+
+    // Update every second (1000 milliseconds)
+    const intervalId = setInterval(updateDateTime, 1000);
+
+    // Clear the interval when the selection changes
+    event.target.addEventListener('change', () => {
+      clearInterval(intervalId);
+    });
+
   }
+  alert(`It is currently updating in real-time for ${event.target.value}`);
+
+}
+
 
   let selectElement = document.querySelector("#city-dropdown");
   selectElement.addEventListener("change", showDate);
