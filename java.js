@@ -20,7 +20,7 @@ setInterval(updateDate, 1000);
         .tz(event.target.value)
         .format("dddd, MMMM D, YYYY HH:mm A");
 
-        let showCityNameElement = document.querySelector("#selected-city");
+        let showCityNameElement = document.querySelector("#city");
         let selectedCityNameText = `${event.target.value}`;
         showCityNameElement.innerHTML = selectedCityNameText;
 
