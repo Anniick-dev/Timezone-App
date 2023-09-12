@@ -32,7 +32,6 @@
 
                             <div class="container d-flex align-items-center">
                                 <div class="timeZoneCard">
-                                    <div class="selectedCityText" id="selectedCityText"></div>
                                     <div class="row">
                                         <label for="cities"></label>
                                         <select id="city-dropdown" class="city-dropdown">
@@ -49,7 +48,7 @@
                                     <div class="timezoneBox" id="amsterdam">
                                         <div class="row">
                                         <div class="col">
-                                        <div class="city">Amsterdam</div> 
+                                        <div class="city" id="city">Amsterdam</div> 
                                         <div class="cityDate" id="cityDate"></div>
                                     </div>
                                     <div class="col">
@@ -69,18 +68,6 @@
                                         </div>
                                     </div>
                                     </div>
-
-                                    <div class="timezoneBox" id="local">
-                                        <div class="row">
-                                            <div class="col">
-                                            <div class="city" id="city"></div> 
-                                            <div class="cityDate" id="cityDate"></div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="cityTime" id="cityTime"></div>
-                                            </div>
-                                        </div>
-                                        </div>
 
                                     <div class="timezoneBox" id="newYork">
                                         <div class="row">
@@ -105,7 +92,23 @@
                                                 </div>
                                             </div>
                                             </div>
+
+                                            <div class="timezoneBox" id="local">
+                                                <div class="row">
+                                                    <div class="col">
+                                                    <div class="city" id="city"></div> 
+                                                    <div class="cityDate" id="cityDate"></div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="cityTime" id="cityTime"></div>
+                                                    </div>
+                                                </div>
+                                                </div>
+
+                                            <div class="selectedCityText" id="selectedCityText">test</div>
+
                                             </div>
+                                            
 
             <footer class="github"> 
                 <a href="https://github.com/Anniick-dev/Timezone-App"> Open-source code </a> by Annick

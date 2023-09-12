@@ -80,20 +80,20 @@ function updateCity(event) {
     cityTimeZone = moment.tz.guess();
   }
   let cityName = cityTimeZone.replace("_", " ").split("/")[1];
-  let cityTime = moment().tz(cityTimeZone);
-  let citiesElement = document.querySelector("#cities");
-  citiesElement.innerHTML = `
-  <div class="city">
-    <div>
-      <h2>${cityName}</h2>
-      <div class="date">${cityTime.format("MMMM	Do YYYY")}</div>
-    </div>
-    <div class="time">${cityTime.format("h:mm:ss")} <small>${cityTime.format(
-    "A"
-  )}</small></div>
-  </div>
-  `;
+  let cityTimes = moment().tz(cityTimeZone);
+  
+  // Find the specific city element by its ID
+  let cityElement = document.querySelector(`#${cityName.toLowerCase()}`);
+  if (cityElement) {
+    let cityDateElement = cityElement.querySelector(".cityDate");
+    let cityTimeElement = cityElement.querySelector(".cityTime");
+    
+    // Update the content of the specific city element
+    cityDateElement.textContent = cityTimes.format("MMMM Do YYYY");
+    cityTimeElement.textContent = `${cityTimes.format("h:mm:ss")} ${cityTimes.format("A")}`;
+  }
 }
+
 
 //Show selected city in dropdown upon selection //
   function showDate(event) {
