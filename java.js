@@ -102,14 +102,17 @@ function updateCity(event) {
     if (event.target.value.length > 0) {
       let currentTime = moment()
         .tz(event.target.value)
-        .format("HH:mm A");
+        .format("HH:mm:ss A");
 
         let currentDate = moment()
         .tz(event.target.value)
         .format("dddd, MMMM D, YYYY");
 
+        let cityTimeZone = event.target.value;
+        let cityName = cityTimeZone.replace("_", " ").split("/")[1];
+
         let showCityNameElement = document.querySelector("#cityFiller");
-        let selectedCityNameText = `${event.target.value}`;
+        let selectedCityNameText = `${cityName}`;
         showCityNameElement.innerHTML = selectedCityNameText;
 
         let showCityDateElement = document.querySelector("#cityDateFiller");
@@ -121,10 +124,10 @@ function updateCity(event) {
         showCityTimeElement.innerHTML = selectedCityTimeText;
 
         let showDateElement = document.querySelector("#selectedCityText");
-        let selectedCityText = `It is currently ${currentDate} ${currentTime} in ${event.target.value}`;
+        let selectedCityText = `It is currently ${currentDate} ${currentTime} in ${cityName}`;
         showDateElement.innerHTML = selectedCityText;
 
-      alert(`It is ${currentTime} in ${event.target.value}`);
+      alert(`It is ${currentTime} in ${cityName}`);
     }
   }
 

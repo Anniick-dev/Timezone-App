@@ -162,11 +162,7 @@ input:checked + .slider:before {
   border-radius: 10px;
   text-align: center;
   margin: 0 auto;
-  border-bottom: 2px dashed rgba(33, 155, 231, 0.2);
-}
-
-.timezoneBox:last-child{
-  border-bottom: 10px dashed rgba(33, 155, 231, 0.2);
+  border-bottom: 1px dashed rgba(33, 155, 231, 0.2);
 }
 
 /* Style the city selected display */
