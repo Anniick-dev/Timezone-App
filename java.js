@@ -88,9 +88,9 @@ function updateCity(event) {
     <div class="cityDate">${cityTimes.format("MMMM	Do YYYY")}</div>
     </div>
     <div class="col">
-    <div class="cityTime">${cityTimes.format("h:mm:ss")} <small>${cityTimes.format(
+    <div class="cityTime">${cityTimes.format("HH:mm:ss")} ${cityTimes.format(
     "A"
-  )}</small></div>
+  )}</div>
   </div>
   </div>
   </div>
@@ -102,14 +102,26 @@ function updateCity(event) {
     if (event.target.value.length > 0) {
       let currentTime = moment()
         .tz(event.target.value)
-        .format("dddd, MMMM D, YYYY HH:mm A");
+        .format("HH:mm A");
 
-        let showCityNameElement = document.querySelector("#city");
+        let currentDate = moment()
+        .tz(event.target.value)
+        .format("dddd, MMMM D, YYYY");
+
+        let showCityNameElement = document.querySelector("#cityFiller");
         let selectedCityNameText = `${event.target.value}`;
         showCityNameElement.innerHTML = selectedCityNameText;
 
+        let showCityDateElement = document.querySelector("#cityDateFiller");
+        let selectedCityDateText = `${currentDate}`;
+        showCityDateElement.innerHTML = selectedCityDateText;
+
+        let showCityTimeElement = document.querySelector("#cityTimeFiller");
+        let selectedCityTimeText = `${currentTime}`;
+        showCityTimeElement.innerHTML = selectedCityTimeText;
+
         let showDateElement = document.querySelector("#selectedCityText");
-        let selectedCityText = `It is currently ${currentTime} in ${event.target.value}`;
+        let selectedCityText = `It is currently ${currentDate} ${currentTime} in ${event.target.value}`;
         showDateElement.innerHTML = selectedCityText;
 
       alert(`It is ${currentTime} in ${event.target.value}`);
@@ -119,5 +131,5 @@ function updateCity(event) {
   let selectElement = document.querySelector("#city-dropdown");
   selectElement.addEventListener("change", showDate);
     
-  let citiesSelectElement = document.querySelector("#city");
+  let citiesSelectElement = document.querySelector("#cityFiller");
   citiesSelectElement.addEventListener("change", updateCity);

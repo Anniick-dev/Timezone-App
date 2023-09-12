@@ -34,13 +34,14 @@
                                 <div class="timeZoneCard">
                                     <div class="row">
                                         <label for="cities"></label>
-                                        <select id="city-dropdown" class="city-dropdown">
+                                        <select class="city-dropdown" id="city-dropdown">
                                             <option value="" selected>Choose city</option>
                                             <option value="Europe/Amsterdam">Amsterdam</option>
                                             <option value="Pacific/Auckland">Auckland</option>
                                             <option value="local" id="local">Current Location</option>
                                             <option value="America/New_York">New York</option>
                                             <option value="Australia/Sydney">Sydney</option>
+                                            <option value="Australia/Brisbane">Brisbane</option>
                                         </select>
                                     </div>
 
@@ -104,6 +105,18 @@
                                                     </div>
                                                 </div>
                                                 </div>
+
+                                                <div class="timezoneBox" id="fillerBox">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                        <div class="city" id="cityFiller"></div> 
+                                                        <div class="cityDate" id="cityDateFiller"></div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="cityTime" id="cityTimeFiller"></div>
+                                                        </div>
+                                                    </div>
+                                                    </div>
 
                                             <div class="selectedCityText" id="selectedCityText">test</div>
 
