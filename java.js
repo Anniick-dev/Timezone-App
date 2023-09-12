@@ -25,7 +25,8 @@ function updateCityTime() {
 
     amsterdamDateElement.innerHTML = amsterdamTime.format("MMMM	Do YYYY");
     amsterdamTimeElement.innerHTML = amsterdamTime.format(
-      "h:mm:ss [<small>]A[</small>]"
+    "HH:mm:ss A"
+
     );
   }
 
@@ -38,7 +39,8 @@ function updateCityTime() {
 
     aucklandDateElement.innerHTML = aucklandTime.format("MMMM	Do YYYY");
     aucklandTimeElement.innerHTML = aucklandTime.format(
-      "h:mm:ss [<small>] A[</small>]"
+      "HH:mm:ss A"
+
     );
   }
 
@@ -51,7 +53,8 @@ function updateCityTime() {
 
     newYorkDateElement.innerHTML = newYorkTime.format("MMMM	Do YYYY");
     newYorkTimeElement.innerHTML = newYorkTime.format(
-      "h:mm:ss [<small>] A[</small>]"
+      "HH:mm:ss A"
+      
     );
   }
 
@@ -64,7 +67,7 @@ function updateCityTime() {
 
     sydneyDateElement.innerHTML = sydneyTime.format("MMMM	Do YYYY");
     sydneyTimeElement.innerHTML = sydneyTime.format(
-      "h:mm:ss [<small>] A[</small>]"
+      "HH:mm:ss A"
     );
   }
 }
@@ -81,7 +84,7 @@ function updateCityTime() {
         showCityNameElement.innerHTML = selectedCityNameText;
 
         let showDateElement = document.querySelector("#selectedCityText");
-        let selectedCityText = `${currentTime}`;
+        let selectedCityText = `It is currently ${currentTime} in ${event.target.value}`;
         showDateElement.innerHTML = selectedCityText;
 
       alert(`It is ${currentTime} in ${event.target.value}`);
