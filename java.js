@@ -114,19 +114,23 @@ function updateCity(event) {
 
 //Show selected city in dropdown upon selection //
 function showDate(event) {
+  let cityName
   if (event.target.value.length > 0) {
 
     function updateDateTime() {
+      
+      cityTimeZone = event.target.value;
+      if (cityTimeZone==="local") {
+        cityTimeZone = moment.tz.guess();
+      }
       let currentTime = moment()
-        .tz(event.target.value)
+        .tz(cityTimeZone)
         .format("HH:mm:ss A");
 
       let currentDate = moment()
-        .tz(event.target.value)
+        .tz(cityTimeZone)
         .format("dddd, MMMM D, YYYY");
-
-      let cityTimeZone = event.target.value;
-      let cityName = cityTimeZone.replace("_", " ").split("/")[1];
+      cityName = cityTimeZone.replace("_", " ").split("/")[1];
 
       let showCityNameElement = document.querySelector("#cityFiller");
       let selectedCityNameText = `${cityName}`;
@@ -157,7 +161,7 @@ function showDate(event) {
     });
 
   }
-  alert(`It is currently updating in real-time for ${event.target.value}`);
+  alert(`It is currently updating in real-time for ${cityName}`);
 
 }
 
